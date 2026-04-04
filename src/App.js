@@ -42,9 +42,9 @@ function App() {
 
       {/* FLOATING BACKGROUND IMAGES */}
       <div className="bg-layer">
-        <img src="/news1.jpg"  alt="news1"className="float img1" />
-        <img src="/news2.jpg"  alt="news2"className="float img2" />
-        <img src="/news3.jpg" alt="news3"className="float img3" />
+        <img src="/news1.jpg"alt="news image1"className="float img1" />
+        <img src="/news2.jpg"alt="news image2"className="float img2" />
+        <img src="/news3.jpg"alt="news imag3"className="float img3" />
       </div>
 
       {/* HERO SECTION */}
