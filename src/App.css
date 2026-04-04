@@ -1,38 +1,238 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* PAGE */
+.page {
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background: url("./assets/news-bg.jpg") center/cover no-repeat;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+
+  animation: zoomBg 20s infinite alternate ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes zoomBg {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* DARK OVERLAY */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.85)
+  );
+
+  z-index: 0;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding-top: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.title span {
+  color: #38bdf8;
+}
+
+.subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+/* MAIN CARD (REDUCED SIZE AS YOU ASKED) */
+.glass {
+  width: 85%;
+  max-width: 750px;
+  min-height: 300px;
+
+  margin: 40px auto;
+  padding: 30px;
+
+  position: relative;
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* FLOATING IMAGES LAYER */
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* FLOAT IMAGES (BIGGER + MORE VISIBLE) */
+.float {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+
+  object-fit: cover;
+  border-radius: 18px;
+
+  opacity: 1;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(56, 189, 248, 0.3);
+
+  transition: 0.4s ease;
+
+  animation: float 6s ease-in-out infinite;
+
+  filter: contrast(1.15) saturate(1.3);
+}
+
+.float:hover {
+  transform: scale(1.12) !important;
+}
+
+/* POSITIONS FIXED */
+.img1 {
+  top: 10%;
+  left: 5%;
+}
+
+.img2 {
+  top: 25%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+/* 🔥 FIXED 3RD IMAGE (WAS NOT VISIBLE EARLIER) */
+.img3 {
+  bottom: 18%;
+  left: 40%;
+  animation-delay: 4s;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* INPUT */
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* NEWS TEXT AREA */
+.textarea {
+  height: 130px;
+  padding: 14px;
+
+  border-radius: 14px;
+  border: none;
+  outline: none;
+
+  resize: none;
+
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* BUTTON */
+.btn {
+  padding: 13px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* RESULT */
+.result {
+  margin-top: 18px;
+  padding: 15px;
+
+  border-radius: 14px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  animation: pop 0.4s ease;
+}
+
+.real {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.fake {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+/* BAR */
+.bar {
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: white;
+  transition: width 0.5s ease;
+}
+
+/* POP ANIMATION */
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
