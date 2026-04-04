@@ -40,23 +40,4 @@ export default function InputBox({ setResult }) {
   );
 }
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
-  textarea: {
-    padding: "10px",
-    height: "120px",
-    borderRadius: "8px",
-  },
-  button: {
-    padding: "10px",
-    background: "#007bff",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-};
+

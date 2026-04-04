@@ -17,11 +17,3 @@ const isReal = result.result === "Real";
   );
 }
 
-const styles = {
-  card: {
-    marginTop: "20px",
-    padding: "15px",
-    border: "1px solid #ddd",
-    borderRadius: "10px",
-  },
-};
