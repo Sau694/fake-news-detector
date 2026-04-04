@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   const [news, setNews] = useState("");
   const [result, setResult] = useState("");
-  const [confidence, setConfidence] = useState(null);
+ 
 
   const checkNews = async () => {
     if (!news.trim()) {
@@ -28,12 +28,12 @@ function App() {
       console.log(data);
 
       setResult(data.result);
-      setConfidence(data.confidence);
+      
 
     } catch (error) {
       console.log(error);
       setResult("Server Error ❌");
-      setConfidence(null);
+      
     }
   };
 
@@ -42,9 +42,9 @@ function App() {
 
       {/* FLOATING BACKGROUND IMAGES */}
       <div className="bg-layer">
-        <img src="/news1.jpg" className="float img1" />
-        <img src="/news2.jpg" className="float img2" />
-        <img src="/news3.jpg" className="float img3" />
+        <img src="/news1.jpg"  alt="news1"className="float img1" />
+        <img src="/news2.jpg"  alt="news2"className="float img2" />
+        <img src="/news3.jpg" alt="news3"className="float img3" />
       </div>
 
       {/* HERO SECTION */}
